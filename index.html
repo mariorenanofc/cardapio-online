@@ -1,33 +1,220 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <link rel="stylesheet" href="./styles/output.css">
     <title>Carpadio Online</title>
 </head>
+
 <body>
     <!-- HEADER -->
-    <header class="w-full h-[350px] bg-zinc-900  bg-home bg-cover bg-center " >
+    <header class="w-full h-[350px] bg-zinc-900  bg-home bg-cover bg-center ">
         <div class="w-full h-full flex flex-col justify-center items-center">
-            <img 
-                src="./assets/logo.jpg" 
-                alt="Logo da lanchonete" 
-                class="w-32 h-32  rounded-full shadow-lg hover:scale-110 duration-200"
-            />
-            <h1 class="text-4xl mt-4 mb-2 font-bold text-yellow-400" >Bunito Burgues</h1>
+            <img src="./assets/logo.jpg" alt="Logo da lanchonete"
+                class="w-32 h-32  rounded-full shadow-lg hover:scale-110 duration-200" />
+            <h1 class="text-4xl mt-4 mb-2 font-bold text-yellow-400">Bunito Burgues</h1>
             <span class="text-white font-medium">Rua: Casimiro Ulisses, 45 - Exu, PE</span>
 
             <div class="bg-green-600 mt-4 px-4 py-1 rounded-lg">
                 <span class="text-center text-white font-medium">
-                    Seg à Dom - 16:00 às 00:40 
+                    Seg à Dom - 16:00 às 00:40
                 </span>
             </div>
         </div>
     </header>
     <!-- FIM HEADER -->
 
+    <h2 class="text-2xl md:text-5xl font-bold text-center mt-3 mb-6">Conheça nosso Menu</h2>
 
+    <!-- INICIO MENU-->
+    <div class="menu">
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl">
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex gap-2">
+                <img src="./assets/hm-simples.jpeg" alt=""
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+
+                <div>
+                    <p class="font-bold">Hamburguer Simples</p>
+                    <p class="text-sm">Pão de fermetanção natural de trigo, Carne bovina, Alface e Tomate</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-2">
+                        <p class="font-bold text-lg">R$ 6.50</p>
+                        <button type="button" class="bg-gray-800 px-4 rounded add-to-cart-btn"
+                            data-name="Hamburquer Simples" data-price="6.50">
+                            <span class="material-symbols-outlined text-white">
+                                shopping_cart
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex gap-2">
+                <img src="./assets/hm-queijoquente.jpeg" alt=""
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+
+                <div>
+                    <p class="font-bold">Queijo Quente</p>
+                    <p class="text-sm">Pão de fermetanção natural de trigo, mussarela, alface e tomate</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-2">
+                        <p class="font-bold text-lg">R$ 7.00</p>
+                        <button type="button" class="bg-gray-800 px-4 rounded add-to-cart-btn" data-name="Queijo Quente"
+                            data-price="7.00">
+                            <span class="material-symbols-outlined text-white">
+                                shopping_cart
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex gap-2">
+                <img src="./assets/hm-egg.jpeg" alt=""
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+
+                <div>
+                    <p class="font-bold">EEG</p>
+                    <p class="text-sm">Pão, ovo, mussarela, alface e tomate</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-2">
+                        <p class="font-bold text-lg">R$ 7.00</p>
+                        <button type="button" class="bg-gray-800 px-4 rounded add-to-cart-btn" data-name="Burguer EEG"
+                            data-price="7.00">
+                            <span class="material-symbols-outlined text-white">
+                                shopping_cart
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex gap-2">
+                <img src="./assets/hm-egg.jpeg" alt=""
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+
+                <div>
+                    <p class="font-bold">Misto</p>
+                    <p class="text-sm">Pão de forma, presunto, mussarela, alface e tomate</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-2">
+                        <p class="font-bold text-lg">R$ 7.50</p>
+                        <button type="button" class="bg-gray-800 px-4 rounded add-to-cart-btn" data-name="Misto"
+                            data-price="7.50">
+                            <span class="material-symbols-outlined text-white">
+                                shopping_cart
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex gap-2">
+                <img src="./assets/hm-egg.jpeg" alt=""
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+
+                <div>
+                    <p class="font-bold">X - Burguer</p>
+                    <p class="text-sm">Pão de fermento natural de trigo, carne bovina, mussarela, alface e tomate</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-2">
+                        <p class="font-bold text-lg">R$ 8.50</p>
+                        <button type="button" class="bg-gray-800 px-4 rounded add-to-cart-btn" data-name="X - Burguer"
+                            data-price="7.50">
+                            <span class="material-symbols-outlined text-white">
+                                shopping_cart
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex gap-2">
+                <img src="./assets/hm-egg.jpeg" alt=""
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+
+                <div>
+                    <p class="font-bold">Hamburquer</p>
+                    <p class="text-sm">Pão de fermento natural de trigo, carne bovina, presunto, mussarela, alface e tomate</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-2">
+                        <p class="font-bold text-lg">R$ 8.50</p>
+                        <button type="button" class="bg-gray-800 px-4 rounded add-to-cart-btn" data-name="Hamgurguer"
+                            data-price="7.50">
+                            <span class="material-symbols-outlined text-white">
+                                shopping_cart
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex gap-2">
+                <img src="./assets/hm-egg.jpeg" alt=""
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+
+                <div>
+                    <p class="font-bold">Americano</p>
+                    <p class="text-sm">Pão de fermento natural de trigo, carne bovina, presunto, mussarela, alface e tomate</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-2">
+                        <p class="font-bold text-lg">R$ 8.50</p>
+                        <button type="button" class="bg-gray-800 px-4 rounded add-to-cart-btn" data-name="Americano"
+                            data-price="8.50">
+                            <span class="material-symbols-outlined text-white">
+                                shopping_cart
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex gap-2">
+                <img src="./assets/hm-egg.jpeg" alt=""
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+
+                <div>
+                    <p class="font-bold">EGG Burguer com Salsicha</p>
+                    <p class="text-sm">Pão, carne bovina, ovo, mussarela, salsicha, alface e tomate</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-2">
+                        <p class="font-bold text-lg">R$ 9.50</p>
+                        <button type="button" class="bg-gray-800 px-4 rounded add-to-cart-btn" data-name="EEG Burguer com Salsicha"
+                            data-price="9.50">
+                            <span class="material-symbols-outlined text-white">
+                                shopping_cart
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--FIM PRODUTO ITEM -->
+        </main>
+    </div>
+
+    <!-- FIM MENU-->
 </body>
+
 </html>
