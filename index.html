@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Commissioner:slnt,wght,FLAR,VOLM@-12..0,100..900,0..100,0..100&display=swap"
+        rel="stylesheet" />
+
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
@@ -36,7 +42,7 @@
 
     <!-- INICIO MENU-->
     <div class="menu">
-        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl">
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
 
             <!-- PRODUTO ITEM -->
             <div class="flex gap-2">
@@ -223,7 +229,7 @@
         </div>
 
         <!-- INICIO GRID BEBIDAS-->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl" id="menu">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2" id="menu">
             <!-- PRODUTO ITEM -->
             <div class="flex gap-2">
                 <img src="./assets/mini cajuina.png" alt=""
@@ -370,17 +376,14 @@
                 <p class="font-bold">Total: <span id="cart-total">R$ 0.00</span></p>
 
                 <p class="font-bold mt-4">Endereço de Entrega:</p>
-                <input 
-                    type="text" 
-                    placeholder="Digite seu endereço completo" 
-                    id="address"
-                    class="w-full border-2  p-1 rounded my-1 bg-orange-100 placeholder-black"
-                >
-                <p class="text-red-700 hidden" id="address-warn" >*Digite seu endereço completo!</p>
+                <input type="text" placeholder="Digite seu endereço completo" id="address"
+                    class="w-full border-2  p-1 rounded my-1 bg-orange-100 placeholder-black">
+                <p class="text-red-700 hidden" id="address-warn">*Digite seu endereço completo!</p>
 
                 <div class="flex items-center justify-between mt-5 w-full">
                     <button id="closed-model-btn">Fechar</button>
-                    <button id="checkout-btn" class="bg-green-600 text-white px-4 py-1 rounded">Finalizar pedido</button>
+                    <button id="checkout-btn" class="bg-green-600 text-white px-4 py-1 rounded">Finalizar
+                        pedido</button>
                 </div>
             </div>
         </div>
@@ -389,10 +392,7 @@
 
     <!--BUTTON CART FOOTER-->
     <footer class="w-full bg-red-500 py-3 fixed bottom-0 z-40 flex items-center justify-center">
-        <button 
-            class="text-white flex items-center gap-2 font-bold"
-            id="cart-btn"
-        >
+        <button class="text-white flex items-center gap-2 font-bold" id="cart-btn">
             (<span id="cart-count" class="">0</span>)
             Meu carrinho
             <span class="material-symbols-outlined text-lg text-white">
