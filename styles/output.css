@@ -46,7 +46,7 @@ html,
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Commissioner, sans-serif;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -762,14 +762,8 @@ video {
   margin-bottom: 0.5rem;
 }
 
-.my-auto {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.my-5 {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+.mb-16 {
+  margin-bottom: 4rem;
 }
 
 .mb-2 {
@@ -1475,10 +1469,6 @@ video {
 
 .gap-7 {
   gap: 1.75rem;
-}
-
-.gap-3 {
-  gap: 0.75rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {

@@ -4,6 +4,9 @@ module.exports = {
     './**/*.{html,js}',
   ],
   theme: {
+    fontFamily: {
+      'sans': ['Commissioner', 'sans-serif']
+    },
     extend: {
       backgroundImage: {
         "home": "url('../assets/bg.png')"
