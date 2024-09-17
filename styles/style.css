@@ -5,3 +5,11 @@
 body {
     background-color: #F6F7F8;
 }
+
+#status-circle.bg-green-600 {
+    background-color: #4CAF50; /* verde */
+}
+
+#status-circle.bg-red-600 {
+    background-color: #F44336; /* vermelho */
+}
