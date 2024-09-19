@@ -6,35 +6,38 @@ const cartTotal = document.getElementById("cart-total");
 const checkoutBtn = document.getElementById("checkout-btn");
 const closeModalBtn = document.getElementById("closed-model-btn");
 const cartCounter = document.getElementById("cart-count");
-const addressInput = document.getElementById("address");
+const addressNumberInput = document.getElementById("address-number");
+const addressStreetInput = document.getElementById("address-street");
+const addressNeighborhoodInput = document.getElementById("address-neighborhood");
+const addressCityInput = document.getElementById("address-city");
 const addressWarn = document.getElementById("address-warn");
 const nameInput = document.getElementById("name");
-const paymentMethodInput = document.getElementById("payment-method");
+const paymentMethodSelect = document.getElementById("payment-method");
 const additionalInfoInput = document.getElementById("additional-info");
 
 // Contador de pedidos
 let orderCount = 0;
 let cart = [];
 
-// Open card model
+// Open cart modal
 cartBtn.addEventListener("click", function () {
     updateCartModal();
     cartModal.style.display = "flex";
 });
 
-// Closed card model ao clicar fora
+// Close cart modal when clicking outside
 cartModal.addEventListener("click", function (event) {
     if (event.target === cartModal) {
         cartModal.style.display = "none";
     }
 });
 
-// Fechar modal ao clicar no botão fechar
+// Close cart modal when clicking close button
 closeModalBtn.addEventListener("click", function () {
     cartModal.style.display = "none";
 });
 
-// Adicionar ao carrinho
+// Add to cart
 menu.addEventListener("click", function (event) {
     let parentButton = event.target.closest(".add-to-cart-btn");
 
@@ -46,7 +49,7 @@ menu.addEventListener("click", function (event) {
     }
 });
 
-// Função para adicionar no carrinho
+// Function to add item to cart
 function addToCart(name, price) {
     const existingItem = cart.find(item => item.name === name);
 
@@ -64,7 +67,7 @@ function addToCart(name, price) {
     updateCartFooterVisibility();
 }
 
-// Função para remover item do carrinho
+// Function to remove item from cart
 function removeItemFromCart(name) {
     const itemIndex = cart.findIndex(item => item.name === name);
     if (itemIndex > -1) {
@@ -74,7 +77,7 @@ function removeItemFromCart(name) {
     }
 }
 
-// Atualiza o carrinho no modal
+// Update cart modal
 function updateCartModal() {
     cartItemsContainer.innerHTML = "";
     let total = 0;
@@ -110,7 +113,7 @@ function updateCartModal() {
     return itemCount;
 }
 
-// Função para atualizar a visibilidade do footer com base no número de itens no carrinho
+// Update footer visibility based on cart items
 function updateCartFooterVisibility() {
     const cartFooter = document.getElementById('cart-footer');
 
@@ -125,23 +128,36 @@ function updateCartFooterVisibility() {
     }
 }
 
-// Atualiza o footer ao carregar a página
+// Update footer visibility on page load
 document.addEventListener('DOMContentLoaded', updateCartFooterVisibility);
 
-// Valida o endereço e exibe o aviso
-addressInput.addEventListener("input", function (event) {
-    let inputValue = event.target.value;
-    if (inputValue !== "") {
-        addressInput.classList.remove("border-red-500");
-        addressWarn.classList.add("hidden");
-    }
-});
+// Validate address input and show warning
+addressNumberInput.addEventListener("input", validateAddress);
+addressStreetInput.addEventListener("input", validateAddress);
+addressNeighborhoodInput.addEventListener("input", validateAddress);
+addressCityInput.addEventListener("input", validateAddress);
 
-// Função para verificar se a loja está aberta
+function validateAddress() {
+    if (addressNumberInput.value !== "" && addressStreetInput.value !== "" &&
+        addressNeighborhoodInput.value !== "" && addressCityInput.value !== "") {
+        addressWarn.classList.add("hidden");
+        addressNumberInput.classList.remove("border-red-500");
+        addressStreetInput.classList.remove("border-red-500");
+        addressNeighborhoodInput.classList.remove("border-red-500");
+        addressCityInput.classList.remove("border-red-500");
+    } else {
+        addressWarn.classList.remove("hidden");
+        addressNumberInput.classList.add("border-red-500");
+        addressStreetInput.classList.add("border-red-500");
+        addressNeighborhoodInput.classList.add("border-red-500");
+        addressCityInput.classList.add("border-red-500");
+    }
+}
+
+// Check if store is open
 function isStoreOpen() {
-    // Lógica para verificar se a loja está aberta
-    // Retorne true se a loja estiver aberta, false caso contrário
-    return true; // Exemplo de retorno, ajuste conforme necessário
+    // Logic to check if store is open
+    return true; // Example return, adjust as needed
 }
 
 checkoutBtn.addEventListener("click", function () {
@@ -166,16 +182,21 @@ checkoutBtn.addEventListener("click", function () {
 
     if (cart.length === 0) return;
 
-    if (addressInput.value === "") {
+    // Check if all address fields are filled
+    if (addressNumberInput.value === "" || addressStreetInput.value === "" || 
+        addressNeighborhoodInput.value === "" || addressCityInput.value === "") {
         addressWarn.classList.remove("hidden");
-        addressInput.classList.add("border-red-500");
+        addressNumberInput.classList.add("border-red-500");
+        addressStreetInput.classList.add("border-red-500");
+        addressNeighborhoodInput.classList.add("border-red-500");
+        addressCityInput.classList.add("border-red-500");
         return;
     }
 
-    // Incrementa o contador de pedidos
+    // Increment order count
     orderCount += 1;
 
-    // Monta a mensagem para o WhatsApp
+    // Build WhatsApp message
     const cartItems = cart.map(item => {
         return `${item.name} (${item.quantity}) un`;
     }).join("\n");
@@ -183,28 +204,28 @@ checkoutBtn.addEventListener("click", function () {
     const message = `
 
 
-🚨  *Pedido de *Nº ${orderCount}*
+🚨  *Pedido de Nº ${orderCount}*
 
 🛒  *Itens:*
--${cartItems}
+${cartItems}
 
 💰 *Valor Total:* R$ ${cartTotal.textContent}
 
-🛵 *Endereço:* ${addressInput.value}
+🏠 *Endereço:* ${addressNumberInput.value}, ${addressStreetInput.value}, ${addressNeighborhoodInput.value}, ${addressCityInput.value}
 
 ⚠️ _OBS: O valor da entrega será passado após confirmação de dados e endereço!_
 
 👤  Nome: ${nameInput.value}
-💳 Forma de Pagamento: ${paymentMethodInput.value}
+💳 Forma de Pagamento: ${paymentMethodSelect.value}
 🗒️ Detalhes Adicionais: ${additionalInfoInput.value}
     `;
-     
 
     const encodedMessage = encodeURIComponent(message);
     const phone = "5587999061405";
 
     window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
 
+    // Clear cart and update modal
     cart = [];
     updateCartModal();
     updateCartFooterVisibility();
