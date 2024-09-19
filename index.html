@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     <!--Preloading fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +52,7 @@
     <h2 class="text-2xl md:text-5xl font-bold text-center mt-3 mb-6">Conheça nosso Menu</h2>
 
     <!-- INICIO MENU-->
-    <div id="menu">
+    <div id="menu" class="mb-12">
         <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
 
             <!-- PRODUTO ITEM -->
@@ -377,8 +379,8 @@
     <!-- FIM MENU-->
 
     <!--MODAL CARD-->
-    <div class="bg-black/70 w-full h-full fixed top-0 left-0 z-[99] hidden items-center justify-center" id="cart-modal">
-        <div class="bg-orange-400  p-5 rounded-md min-w-[90%] md:min-w-[600px]">
+    <div class="bg-black/70 w-full h-full fixed top-0 left-0 z-[99] hidden items-center justify-center modal-content" id="cart-modal">
+        <div class="bg-orange-400 p-5 rounded-md min-w-[90%] md:min-w-[600px] max-h-[90vh] overflow-auto">
             <h2 class="font-bold text-center text-2xl mb-2">Meu carrinho</h2>
 
             <div id="cart-items" class="flex justify-between mb-2 flex-col max-h-[300px] overflow-y-auto"></div>
@@ -387,33 +389,47 @@
 
             <p class="font-bold mt-4">Endereço de Entrega:</p>
             <input type="text" placeholder="Digite seu endereço completo" id="address"
-                class="w-full border-2  p-1 rounded my-1 bg-orange-100 placeholder-black">
-            <p class="text-red-700 hidden" id="address-warn">*Digite seu endereço completo!</p>
+                class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black">
+            <p class="text-red-700 hidden" id="address-warn">*Digite seu endereço por favor!</p>
+
+            <p class="font-bold mt-4">Nome:</p>
+            <input type="text" placeholder="Digite seu nome" id="name"
+                class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black">
+
+            <p class="font-bold mt-4">Forma de Pagamento:</p>
+            <input type="text" placeholder="Digite sua forma de pagamento" id="payment-method"
+                class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black">
+
+            <p class="font-bold mt-4">Detalhes Adicionais:</p>
+            <textarea placeholder="Digite detalhes adicionais" id="additional-info"
+                class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"></textarea>
 
             <div class="flex items-center justify-between mt-5 w-full">
-                <button id="closed-model-btn">Fechar</button>
-                <button id="checkout-btn" class="bg-green-600 text-white px-4 py-1 rounded">Finalizar
-                    pedido</button>
+                <button id="closed-model-btn" class="bg-red-600 text-white px-4 py-1 rounded">Fechar</button>
+                <button id="checkout-btn" class="bg-green-600 text-white px-4 py-1 rounded">Finalizar pedido</button>
             </div>
-
         </div>
     </div>
     <!--FIM MODAL CARD-->
 
+
+
     <!--BUTTON CART FOOTER-->
-<footer class="w-full bg-red-500 py-3 fixed bottom-0 z-40 flex items-center justify-center transition-footer footer-hidden" id="cart-footer"> 
-    <button class="text-white flex items-center gap-2 font-bold" id="cart-btn">
-        (<span id="cart-count" class="">0</span>)
-        Meu carrinho
-        <span class="material-symbols-outlined text-lg text-white">
-            add_shopping_cart
-        </span>
-    </button>
-</footer>
-<!--FIM BUTTON CART FOOTER-->
+    <footer
+        class="w-full bg-red-500 py-3 fixed bottom-0 z-40 flex items-center justify-center transition-footer footer-hidden"
+        id="cart-footer">
+        <button class="text-white flex items-center gap-2 font-bold" id="cart-btn">
+            (<span id="cart-count" class="">0</span>)
+            Meu carrinho
+            <span class="material-symbols-outlined text-lg text-white">
+                add_shopping_cart
+            </span>
+        </button>
+    </footer>
+    <!--FIM BUTTON CART FOOTER-->
 
 
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./scripts/statusStore.js"></script>
     <script src="./scripts/orderCart.js"></script>
 </body>

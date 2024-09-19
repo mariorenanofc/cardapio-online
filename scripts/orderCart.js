@@ -8,7 +8,12 @@ const closeModalBtn = document.getElementById("closed-model-btn");
 const cartCounter = document.getElementById("cart-count");
 const addressInput = document.getElementById("address");
 const addressWarn = document.getElementById("address-warn");
+const nameInput = document.getElementById("name");
+const paymentMethodInput = document.getElementById("payment-method");
+const additionalInfoInput = document.getElementById("additional-info");
 
+// Contador de pedidos
+let orderCount = 0;
 let cart = [];
 
 // Open card model
@@ -29,15 +34,14 @@ closeModalBtn.addEventListener("click", function () {
     cartModal.style.display = "none";
 });
 
+// Adicionar ao carrinho
 menu.addEventListener("click", function (event) {
-    // Verifica se o clique foi no botão ou no ícone dentro do botão
     let parentButton = event.target.closest(".add-to-cart-btn");
 
     if (parentButton) {
         const name = parentButton.getAttribute("data-name");
         const price = parseFloat(parentButton.getAttribute("data-price"));
 
-        // Adicionar no carrinho
         addToCart(name, price);
     }
 });
@@ -47,7 +51,6 @@ function addToCart(name, price) {
     const existingItem = cart.find(item => item.name === name);
 
     if (existingItem) {
-        // Se já existe o item, aumenta a quantidade
         existingItem.quantity += 1;
     } else {
         cart.push({
@@ -58,7 +61,7 @@ function addToCart(name, price) {
     }
 
     updateCartModal();
-    updateCartFooterVisibility(); // Atualiza a visibilidade do footer
+    updateCartFooterVisibility();
 }
 
 // Função para remover item do carrinho
@@ -67,7 +70,7 @@ function removeItemFromCart(name) {
     if (itemIndex > -1) {
         cart.splice(itemIndex, 1);
         updateCartModal();
-        updateCartFooterVisibility(); // Atualiza a visibilidade do footer
+        updateCartFooterVisibility();
     }
 }
 
@@ -101,21 +104,18 @@ function updateCartModal() {
         currency: "BRL"
     });
 
-    // Atualiza o contador do carrinho e retorna a quantidade
     const itemCount = cart.length;
     cartCounter.innerHTML = itemCount;
 
-    return itemCount; // Retorna a quantidade de itens
+    return itemCount;
 }
 
 // Função para atualizar a visibilidade do footer com base no número de itens no carrinho
 function updateCartFooterVisibility() {
     const cartFooter = document.getElementById('cart-footer');
 
-    // Chama updateCartModal para obter o número de itens
     const itemCount = updateCartModal();
 
-    // Mostra ou oculta o footer com base na quantidade de itens
     if (itemCount > 0) {
         cartFooter.classList.remove('footer-hidden');
         cartFooter.classList.add('footer-visible');
@@ -125,8 +125,87 @@ function updateCartFooterVisibility() {
     }
 }
 
-
 // Atualiza o footer ao carregar a página
 document.addEventListener('DOMContentLoaded', updateCartFooterVisibility);
 
+// Valida o endereço e exibe o aviso
+addressInput.addEventListener("input", function (event) {
+    let inputValue = event.target.value;
+    if (inputValue !== "") {
+        addressInput.classList.remove("border-red-500");
+        addressWarn.classList.add("hidden");
+    }
+});
 
+// Função para verificar se a loja está aberta
+function isStoreOpen() {
+    // Lógica para verificar se a loja está aberta
+    // Retorne true se a loja estiver aberta, false caso contrário
+    return true; // Exemplo de retorno, ajuste conforme necessário
+}
+
+checkoutBtn.addEventListener("click", function () {
+
+    const isOpen = isStoreOpen();
+    if (!isOpen) {
+        Toastify({
+            text: "Lanchonete fechada no momento!",
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+                background: "rgb(239 68 68 )",
+            },
+            onClick: function () { } // Callback after click
+        }).showToast();
+
+        return;
+    }
+
+    if (cart.length === 0) return;
+
+    if (addressInput.value === "") {
+        addressWarn.classList.remove("hidden");
+        addressInput.classList.add("border-red-500");
+        return;
+    }
+
+    // Incrementa o contador de pedidos
+    orderCount += 1;
+
+    // Monta a mensagem para o WhatsApp
+    const cartItems = cart.map(item => {
+        return `${item.name} (${item.quantity}) un`;
+    }).join("\n");
+
+    const message = `
+
+
+🚨  *Pedido de *Nº ${orderCount}*
+
+🛒  *Itens:*
+-${cartItems}
+
+💰 *Valor Total:* R$ ${cartTotal.textContent}
+
+🛵 *Endereço:* ${addressInput.value}
+
+⚠️ _OBS: O valor da entrega será passado após confirmação de dados e endereço!_
+
+👤  Nome: ${nameInput.value}
+💳 Forma de Pagamento: ${paymentMethodInput.value}
+🗒️ Detalhes Adicionais: ${additionalInfoInput.value}
+    `;
+     
+
+    const encodedMessage = encodeURIComponent(message);
+    const phone = "87999061405";
+
+    window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
+
+    cart = [];
+    updateCartModal();
+    updateCartFooterVisibility();
+});

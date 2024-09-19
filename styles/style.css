@@ -48,3 +48,16 @@ body {
 .footer-visible {
     transform: translateY(0);
 }
+
+@media (max-width: 640px) {
+    #cart-modal {
+        padding: 10px;
+    }
+    #cart-items {
+        max-height: 200px; /* Ajuste conforme necessário */
+    }
+    .modal-content {
+        max-height: 90vh; /* Ajuste conforme necessário */
+        overflow-y: auto;
+    }
+}
