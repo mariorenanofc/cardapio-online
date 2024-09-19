@@ -770,6 +770,10 @@ video {
   margin-bottom: 0.5rem;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .mb-6 {
   margin-bottom: 1.5rem;
 }
@@ -792,10 +796,6 @@ video {
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
 }
 
 .box-border {
@@ -915,6 +915,10 @@ video {
 
 .h-full {
   height: 100%;
+}
+
+.max-h-\[300px\] {
+  max-height: 300px;
 }
 
 .w-28 {
@@ -1803,6 +1807,10 @@ video {
   border-radius: 0.25rem;
 }
 
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1813,14 +1821,6 @@ video {
 
 .rounded-md {
   border-radius: 0.375rem;
-}
-
-.rounded-sm {
-  border-radius: 0.125rem;
-}
-
-.rounded-2xl {
-  border-radius: 1rem;
 }
 
 .rounded-b {
@@ -1975,6 +1975,11 @@ video {
   background-color: rgb(255 237 213 / var(--tw-bg-opacity));
 }
 
+.bg-orange-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 186 116 / var(--tw-bg-opacity));
+}
+
 .bg-orange-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(251 146 60 / var(--tw-bg-opacity));
@@ -1993,16 +1998,6 @@ video {
 .bg-zinc-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(24 24 27 / var(--tw-bg-opacity));
-}
-
-.bg-orange-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 215 170 / var(--tw-bg-opacity));
-}
-
-.bg-orange-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(253 186 116 / var(--tw-bg-opacity));
 }
 
 .bg-home {
@@ -2131,12 +2126,12 @@ video {
   padding: 0.25rem;
 }
 
-.p-5 {
-  padding: 1.25rem;
-}
-
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .px-1 {
@@ -2751,12 +2746,37 @@ body {
 
 #status-circle.bg-green-600 {
   background-color: #4CAF50;
-  /* verde */
 }
 
 #status-circle.bg-red-600 {
   background-color: #F44336;
-  /* vermelho */
+}
+
+/* Estiliza a barra de rolagem */
+
+#cart-items::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Estiliza o fundo da barra de rolagem */
+
+#cart-items::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Estiliza o "polegar" da barra de rolagem */
+
+#cart-items::-webkit-scrollbar-thumb {
+  background-color: #FFA500;
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+
+/* Estiliza o polegar da barra de rolagem ao ser pressionado */
+
+#cart-items::-webkit-scrollbar-thumb:hover {
+  background-color: #FF8C00;
 }
 
 @media (min-width: 640px) {
