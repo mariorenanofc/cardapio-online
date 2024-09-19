@@ -51,7 +51,7 @@
 
     <!-- INICIO MENU-->
     <div id="menu">
-        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16" >
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
 
             <!-- PRODUTO ITEM -->
             <div class="flex gap-2">
@@ -239,7 +239,7 @@
 
         <!-- INICIO GRID BEBIDAS-->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2" id="menu">
-            
+
             <!-- PRODUTO ITEM -->
             <div class="flex gap-2">
                 <img src="./assets/mini cajuina.png" alt=""
@@ -383,25 +383,25 @@
 
             <div id="cart-items" class="flex justify-between mb-2 flex-col max-h-[300px] overflow-y-auto"></div>
 
-                <p class="font-bold">Total: <span id="cart-total">R$ 0.00</span></p>
+            <p class="font-bold">Total: <span id="cart-total">R$ 0.00</span></p>
 
-                <p class="font-bold mt-4">Endereço de Entrega:</p>
-                <input type="text" placeholder="Digite seu endereço completo" id="address"
-                    class="w-full border-2  p-1 rounded my-1 bg-orange-100 placeholder-black">
-                <p class="text-red-700 hidden" id="address-warn">*Digite seu endereço completo!</p>
+            <p class="font-bold mt-4">Endereço de Entrega:</p>
+            <input type="text" placeholder="Digite seu endereço completo" id="address"
+                class="w-full border-2  p-1 rounded my-1 bg-orange-100 placeholder-black">
+            <p class="text-red-700 hidden" id="address-warn">*Digite seu endereço completo!</p>
 
-                <div class="flex items-center justify-between mt-5 w-full">
-                    <button id="closed-model-btn">Fechar</button>
-                    <button id="checkout-btn" class="bg-green-600 text-white px-4 py-1 rounded">Finalizar
-                        pedido</button>
-                </div>
-            
+            <div class="flex items-center justify-between mt-5 w-full">
+                <button id="closed-model-btn">Fechar</button>
+                <button id="checkout-btn" class="bg-green-600 text-white px-4 py-1 rounded">Finalizar
+                    pedido</button>
+            </div>
+
         </div>
     </div>
     <!--FIM MODAL CARD-->
 
     <!--BUTTON CART FOOTER-->
-    <footer class="w-full bg-red-500 py-3 fixed bottom-0 z-40 flex items-center justify-center">
+    <footer class="w-full bg-red-500 py-3 fixed bottom-0 z-40 items-center justify-center hidden" id="cart-footer">
         <button class="text-white flex items-center gap-2 font-bold" id="cart-btn">
             (<span id="cart-count" class="">0</span>)
             Meu carrinho
@@ -411,6 +411,7 @@
         </button>
     </footer>
     <!--FIM BUTTON CART FOOTER-->
+
 
     <script src="./scripts/statusStore.js"></script>
     <script src="./scripts/orderCart.js"></script>
