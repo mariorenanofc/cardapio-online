@@ -88,7 +88,7 @@ function updateCartModal() {
                     <p class="font-medium mt-2">R$: ${item.price.toFixed(2)}</p>
                 </div>
                 
-                <button onclick="removeItemFromCart('${item.name}')">Remover</button>
+                <button onclick="removeItemFromCart('${item.name}')" class="bg-red-400 px-2 rounded-md">Remover</button>
             </div>
         `;
 
@@ -110,18 +110,23 @@ function updateCartModal() {
 
 // Função para atualizar a visibilidade do footer com base no número de itens no carrinho
 function updateCartFooterVisibility() {
-    const cartFooter = document.getElementById('cart-footer'); // Selecione o footer pelo ID
+    const cartFooter = document.getElementById('cart-footer');
 
     // Chama updateCartModal para obter o número de itens
     const itemCount = updateCartModal();
 
     // Mostra ou oculta o footer com base na quantidade de itens
     if (itemCount > 0) {
-        cartFooter.classList.remove('hidden'); // Remove a classe 'hidden' para mostrar
+        cartFooter.classList.remove('footer-hidden');
+        cartFooter.classList.add('footer-visible');
     } else {
-        cartFooter.classList.add('flex'); // Adiciona a classe 'hidden' para esconder
+        cartFooter.classList.remove('footer-visible');
+        cartFooter.classList.add('footer-hidden');
     }
 }
 
+
 // Atualiza o footer ao carregar a página
 document.addEventListener('DOMContentLoaded', updateCartFooterVisibility);
+
+
