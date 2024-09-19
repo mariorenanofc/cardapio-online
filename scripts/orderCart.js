@@ -201,7 +201,7 @@ checkoutBtn.addEventListener("click", function () {
      
 
     const encodedMessage = encodeURIComponent(message);
-    const phone = "87999061405";
+    const phone = "5587999061405";
 
     window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
 
