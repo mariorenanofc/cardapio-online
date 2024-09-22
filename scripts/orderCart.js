@@ -1,4 +1,4 @@
-const menu = document.getElementById("menu");
+const menu = document.getElementById("menu", "drick-menu");
 const cartBtn = document.getElementById("cart-btn");
 const cartModal = document.getElementById("cart-modal");
 const cartItemsContainer = document.getElementById("cart-items");
@@ -18,6 +18,21 @@ const additionalInfoInput = document.getElementById("additional-info");
 // Contador de pedidos
 let orderCount = 0;
 let cart = [];
+
+// Carregar carrinho do LocalStorage ao carregar a página
+document.addEventListener('DOMContentLoaded', function () {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+        cart = JSON.parse(storedCart);
+        updateCartModal();
+        updateCartFooterVisibility();
+    }
+});
+
+// Função para salvar o carrinho no LocalStorage
+function saveCartToLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
 
 // Open cart modal
 cartBtn.addEventListener("click", function () {
@@ -63,6 +78,7 @@ function addToCart(name, price) {
         });
     }
 
+    saveCartToLocalStorage(); // Salva o carrinho ao adicionar um item
     updateCartModal();
     updateCartFooterVisibility();
 }
@@ -72,6 +88,7 @@ function removeItemFromCart(name) {
     const itemIndex = cart.findIndex(item => item.name === name);
     if (itemIndex > -1) {
         cart.splice(itemIndex, 1);
+        saveCartToLocalStorage(); // Salva o carrinho ao remover um item
         updateCartModal();
         updateCartFooterVisibility();
     }
@@ -154,13 +171,8 @@ function validateAddress() {
     }
 }
 
-// Check if store is open
-function isStoreOpen() {
-    // Logic to check if store is open
-    return true; // Example return, adjust as needed
-}
-
 checkoutBtn.addEventListener("click", function () {
+    updateStoreStatus();
 
     const isOpen = isStoreOpen();
     if (!isOpen) {
@@ -202,8 +214,6 @@ checkoutBtn.addEventListener("click", function () {
     }).join("\n");
 
     const message = `
-
-
 🚨  *Pedido de Nº ${orderCount}*
 
 🛒  *Itens:*
@@ -225,8 +235,9 @@ ${cartItems}
 
     window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
 
-    // Clear cart and update modal
+    // Clear cart and update modal (inclui limpar o LocalStorage)
     cart = [];
+    localStorage.removeItem('cart');
     updateCartModal();
     updateCartFooterVisibility();
 });
