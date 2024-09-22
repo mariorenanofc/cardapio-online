@@ -5,20 +5,18 @@ function isStoreOpen() {
     const currentMinute = now.getMinutes();
 
     // Horário de funcionamento da loja
-    const openingHour = 16; // 16:00 (quatro da tarde)
+    const openingHour = 16; // 16:00
     const closingHour = 0;  // 00:40 (meia-noite e 40)
     const closingMinute = 40;
 
-    // Verifica se a loja está aberta entre 12:00 e 23:59
-    if (currentHour >= openingHour) {
-        if (currentHour < 24) {
-            return true; // Loja aberta
-        }
+    // Verifica se a loja está aberta entre 16:00 e 23:59
+    if (currentHour >= openingHour && currentHour < 24) {
+        return true; // Loja aberta
     }
 
-    // Verifica se a loja ainda está aberta após a meia-noite até 00:40
+    // Verifica se a loja está aberta entre 00:00 e 00:40 do dia seguinte
     if (currentHour === closingHour && currentMinute <= closingMinute) {
-        return true; // Loja ainda aberta
+        return true; // Loja ainda aberta até 00:40
     }
 
     return false; // Loja fechada
