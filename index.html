@@ -57,176 +57,167 @@
 
     <h2 class="text-2xl md:text-5xl font-bold text-center mt-3 mb-6">Conheça nosso Menu</h2>
 
-    <!-- INICIO MENU-->
+    <!-- SEÇÃO DE PRODUTOS MAIS VENDIDOS -->
+    <section class="my-12">
+        <h2 class="text-2xl md:text-5xl font-bold text-center mb-6">Mais Vendidos</h2>
+
+        <!-- Contêiner com scroll horizontal em dispositivos móveis -->
+        <div class="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4 overflow-x-auto md:overflow-x-visible"
+            id="menu">
+
+            <!-- Produto Mais Vendido 1 -->
+            <div class="flex-none w-[300px] h-auto md:h-[320px] flex flex-col justify-between p-4 border rounded-lg">
+                <div class="flex gap-2">
+                    <img src="../assets/egg-salsicha.webp" alt=""
+                        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    <div class="flex-auto">
+                        <p class="font-bold">EGG Burguer com Salsicha</p>
+                        <p class="text-sm line-clamp-3">Pão de fermentação natural de trigo, carne bovina, ovo,
+                            mussarela, salsicha, alface e tomate. Receita caseira com sabor único.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 justify-between mt-2">
+                    <p class="font-bold text-lg">R$ 9.50</p>
+                    <button type="button"
+                        class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto"
+                        data-name="EEG Burguer com Salsicha" data-price="9.50">
+                        <span class="material-symbols-outlined text-white">shopping_cart</span>
+                    </button>
+                </div>
+            </div>
+            <!-- FIM PRODUTO MAIS VENDIDO 1 -->
+
+            <!-- Produto Mais Vendido 2 -->
+            <div class="flex-none w-[300px] h-auto md:h-[320px] flex flex-col justify-between p-4 border rounded-lg">
+                <div class="flex gap-2">
+                    <img src="./assets/logo-porcoes.webp" alt="Produto mais vendido 2"
+                        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    <div class="flex-auto">
+                        <p class="font-bold">Batata Frita Grande</p>
+                        <p class="text-sm line-clamp-3">Porção de batatas crocantes e saborosas.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 justify-between mt-2">
+                    <p class="font-bold text-lg">R$ 15,00</p>
+                    <button type="button"
+                        class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto"
+                        data-name="Batata Frita Grande" data-price="15.00">
+                        <span class="material-symbols-outlined text-white">shopping_cart</span>
+                    </button>
+                </div>
+            </div>
+            <!-- FIM PRODUTO MAIS VENDIDO 2 -->
+
+            <!-- Produto Mais Vendido 3 -->
+            <div class="flex-none w-[300px] h-auto md:h-[320px] flex flex-col justify-between p-4 border rounded-lg">
+                <div class="flex gap-2">
+                    <img src="./assets/milkshake.webp" alt="Produto mais vendido 3"
+                        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    <div class="flex-auto">
+                        <p class="font-bold">Milkshake de Chocolate</p>
+                        <p class="text-sm line-clamp-3">Refrescante milkshake de chocolate delicioso.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 justify-between mt-2">
+                    <p class="font-bold text-lg">R$ 12,00</p>
+                    <button type="button"
+                        class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto"
+                        data-name="Milkshake de Chocolate" data-price="12.00">
+                        <span class="material-symbols-outlined text-white">shopping_cart</span>
+                    </button>
+                </div>
+            </div>
+            <!-- FIM PRODUTO MAIS VENDIDO 3 -->
+
+        </div>
+    </section>
+    <!-- FIM SEÇÃO DE PRODUTOS MAIS VENDIDOS -->
+
+    <!-- INÍCIO SEÇÃO DE CATEGORIAS -->
+    <h2 class="text-2xl md:text-5xl font-bold text-center mt-3 mb-6">Conheça nosso Menu</h2>
     <div id="menu" class="mb-12">
-        <main class="container mx-auto mt-8">
+        <main class="container mx-auto">
             <h2 class="text-2xl mb-4">Categorias</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Categoria 1 -->
+                <a href="./categories/hamburgers.html"
+                    class="relative flex bg-white shadow-md rounded-lg p-4 items-center overflow-hidden group">
+                    <img src="./assets/logo-hamburgue.webp" alt="Hambúrgueres"
+                        class="w-24 h-24 rounded-lg mr-4 transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:opacity-80 z-10">
+                    <div>
+                        <h3 class="text-xl font-bold">🍔 Hambúrgueres</h3>
+                        <p class="text-gray-600 text-sm">Os melhores hambúrgueres que você já comeu..</p>
+                    </div>
+                    <!-- Efeito com a cor amarela -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-yellow-400 to-transparent opacity-0 group-hover:opacity-60 transition-all duration-500 ease-in-out">
+                    </div>
+                </a>
 
-            <!--CATEGORIAS DOS PRODUTOS-->
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <a href="./categories/hamburgers.html" class="block bg-white shadow-md rounded-lg p-4 text-center">
-                    <h3 class="text-xl font-bold">🍔 Hambúrgueres</h3>
+
+                <!-- Categoria 2 -->
+                <a href="./categories/drinks.html"
+                    class="relative flex bg-white shadow-md rounded-lg p-4 items-center overflow-hidden group">
+                    <img src="./assets/logo-bebidas.webp" alt="Bebidas"
+                        class="w-24 h-24 rounded-lg mr-4 transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:opacity-80 z-10">
+                    <div>
+                        <h3 class="text-xl font-bold">🥤 Bebidas</h3>
+                        <p class="text-gray-600 text-sm">Refrigerantes, cervejas e outros.</p>
+                    </div>
+                    <!-- Efeito com a cor amarela -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-yellow-400 to-transparent opacity-0 group-hover:opacity-60 transition-all duration-500 ease-in-out">
+                    </div>
                 </a>
-                <a href="./categories/drinks.html" class="block bg-white shadow-md rounded-lg p-4 text-center">
-                    <h3 class="text-xl font-bold">🥤Bebidas</h3>
+                <!-- Categoria 3 -->
+                <a href="./categories/juices.html"
+                    class="relative flex bg-white shadow-md rounded-lg p-4 items-center overflow-hidden group">
+                    <img src="./assets/logo-sucos.webp" alt="Sucos"
+                        class="w-24 h-24 rounded-lg mr-4 transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:opacity-80 z-10">
+                    <div>
+                        <h3 class="text-xl font-bold">🍹 Sucos</h3>
+                        <p class="text-gray-600 text-sm">Sucos naturais e vitaminas refrescantes.</p>
+                    </div>
+                    <!-- Efeito com a cor amarela -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-yellow-400 to-transparent opacity-0 group-hover:opacity-60 transition-all duration-500 ease-in-out">
+                    </div>
                 </a>
-                <a href="./categories/juices.html" class="block bg-white shadow-md rounded-lg p-4 text-center">
-                    <h3 class="text-xl font-bold">🍹 Sucos</h3>
+                <!-- Categoria 4 -->
+                <a href="./categories/sides.html"
+                    class="relative flex bg-white shadow-md rounded-lg p-4 items-center overflow-hidden group">
+                    <img src="./assets/logo-porcoes.webp" alt="Porções"
+                        class="w-24 h-24 rounded-lg mr-4 transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:opacity-80 z-10">
+                    <div>
+                        <h3 class="text-xl font-bold">🍟 Porções</h3>
+                        <p class="text-gray-600 text-sm">Batatas e acompanhamento.</p>
+                    </div>
+                    <!-- Efeito com a cor amarela -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-yellow-400 to-transparent opacity-0 group-hover:opacity-60 transition-all duration-500 ease-in-out">
+                    </div>
                 </a>
-                <a href="./categories/sides.html" class="block bg-white shadow-md rounded-lg p-4 text-center">
-                    <h3 class="text-xl font-bold">🍟 Porções</h3>
-                </a>
-                <a href="./categories/others.html" class="block bg-white shadow-md rounded-lg p-4 text-center">
-                    <h3 class="text-xl font-bold">🍱 Outros</h3>
+                <!-- Categoria 5 -->
+                <a href="./categories/others.html"
+                    class="relative flex bg-white shadow-md rounded-lg p-4 items-center overflow-hidden group">
+                    <img src="./assets/logo-acai.webp" alt="Outros"
+                        class="w-24 h-24 rounded-lg mr-4 transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:opacity-80 z-10">
+                    <div>
+                        <h3 class="text-xl font-bold">🍨 Açai</h3>
+                        <p class="text-gray-600 text-sm">Outros pratos deliciosos.</p>
+                    </div>
+                    <!-- Efeito com a cor amarela -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-yellow-400 to-transparent opacity-0 group-hover:opacity-60 transition-all duration-500 ease-in-out">
+                    </div>
                 </a>
             </div>
-            <!--FIM CATEGORIAS DOS PRODUTOS-->
         </main>
-
-        <div class=" mx-auto  max-w-7xl px-2 my-2">
-            <h2 class="font-bold text-3xl">Bebidas</h2>
-        </div>
-
-        <!-- INICIO GRID BEBIDAS-->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2" id="drink-menu">
-
-            <!-- PRODUTO ITEM -->
-            <div class="flex gap-2">
-                <img src="./assets/mini cajuina.png" alt=""
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
-
-                <div class="flex-auto">
-                    <p class="font-bold">Cajuina Pet - mini</p>
-                    <p class="text-sm">Refrigerante de cajuina de 250ml</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-2">
-                        <p class="font-bold text-lg">R$ 3.50</p>
-                        <button type="button" class="bg-gray-800 px-4 rounded add-to-cart-btn"
-                            data-name="Cajuina Pet - mini" data-price="3.50">
-                            <span class="material-symbols-outlined text-white">
-                                shopping_cart
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!--FIM PRODUTO ITEM -->
-
-            <!-- PRODUTO ITEM -->
-            <div class="flex gap-2">
-                <img src="./assets/mini-coca.png" alt=""
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
-
-                <div class="flex-auto">
-                    <p class="font-bold">Coca cola Pet - mini</p>
-                    <p class="text-sm">Refrigerante de coca-cola de 250ml</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-2">
-                        <p class="font-bold text-lg">R$ 3.50</p>
-                        <button type="button" class="bg-gray-800 px-4 rounded add-to-cart-btn"
-                            data-name="Coca cola Pet - mini" data-price="3.50">
-                            <span class="material-symbols-outlined text-white">
-                                shopping_cart
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!--FIM PRODUTO ITEM -->
-
-            <!-- PRODUTO ITEM -->
-            <div class="flex gap-2">
-                <img src="./assets/mini-kuat.png" alt=""
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
-
-                <div class="flex-auto">
-                    <p class="font-bold">Kuat ou Fanta - mini</p>
-                    <p class="text-sm">Refrigerante de Kuat ou Fanta de 250ml</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-2">
-                        <p class="font-bold text-lg">R$ 3.50</p>
-                        <button type="button" class="bg-gray-800 px-4 rounded add-to-cart-btn"
-                            data-name="Kuat ou Fanta - mini" data-price="3.50">
-                            <span class="material-symbols-outlined text-white">
-                                shopping_cart
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!--FIM PRODUTO ITEM -->
-
-            <!-- PRODUTO ITEM -->
-            <div class="flex gap-2">
-                <img src="./assets/lata-350ml.png" alt=""
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
-
-                <div class="flex-auto">
-                    <p class="font-bold">kuat ou Fanta - lata</p>
-                    <p class="text-sm">Refrigerante de Kuat ou Fanta de 350ml lata</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-2">
-                        <p class="font-bold text-lg">R$ 4.50</p>
-                        <button type="button" class="bg-gray-800 px-4 rounded add-to-cart-btn"
-                            data-name="kuat ou Fanta - lata" data-price="4.50">
-                            <span class="material-symbols-outlined text-white">
-                                shopping_cart
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!--FIM PRODUTO ITEM -->
-
-            <!-- PRODUTO ITEM -->
-            <div class="flex gap-2">
-                <img src="./assets/coca-lata.png" alt=""
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
-
-                <div class="flex-auto">
-                    <p class="font-bold">Coca cola - lata</p>
-                    <p class="text-sm">Refrigerante Coca cola de 350ml lata</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-2">
-                        <p class="font-bold text-lg">R$ 5.00</p>
-                        <button type="button" class="bg-gray-800 px-4 rounded add-to-cart-btn"
-                            data-name="Coca cola - lata" data-price="5.00">
-                            <span class="material-symbols-outlined text-white">
-                                shopping_cart
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!--FIM PRODUTO ITEM -->
-            
-            <!-- PRODUTO ITEM -->
-            <div class="flex gap-2">
-                <img src="./assets/cajuina-2litros.png" alt=""
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
-
-                <div class="flex-auto">
-                    <p class="font-bold">Cajuina 2 Litros Pet</p>
-                    <p class="text-sm">Refrigerante caujuina 2 litros</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-2">
-                        <p class="font-bold text-lg">R$ 8.00</p>
-                        <button type="button" class="bg-gray-800 px-4 rounded add-to-cart-btn"
-                            data-name="Coca cola - lata" data-price="5.00">
-                            <span class="material-symbols-outlined text-white">
-                                shopping_cart
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!--FIM PRODUTO ITEM -->
-
-            
-        </div>
-        <!-- FIM GRID BEBIDAS-->
     </div>
+    <!-- FIM SEÇÃO DE CATEGORIAS -->
+
+    </div>
+
     <!-- FIM MENU-->
 
     <!--MODAL CARD-->
@@ -234,13 +225,9 @@
         id="cart-modal">
         <div class="bg-orange-400 p-5 rounded-md min-w-[90%] md:min-w-[600px] max-h-[90vh] overflow-auto">
             <h2 class="font-bold text-center text-2xl mb-2">Meu carrinho</h2>
-
             <div id="cart-items" class="flex justify-between mb-2 flex-col max-h-[300px] overflow-y-auto"></div>
-
             <p class="font-bold">Total: <span id="cart-total">R$ 0.00</span></p>
-
             <p class="font-bold mt-4">Endereço de Entrega:</p>
-
             <input type="text" placeholder="Número" id="address-number"
                 class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black" required>
             <input type="text" placeholder="Rua" id="address-street"
@@ -249,7 +236,6 @@
                 class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black" required>
             <input type="text" placeholder="Cidade" id="address-city"
                 class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black" required>
-
             <p class="text-red-700 hidden" id="address-warn">*Preencha todos os campos do endereço!</p>
 
             <p class="font-bold mt-4">Nome:</p>
@@ -273,11 +259,12 @@
             </div>
         </div>
     </div>
+
     <!--FIM MODAL CARD-->
 
 
-
     <!--BUTTON CART FOOTER-->
+
     <footer
         class="w-full bg-red-500 py-3 fixed bottom-0 z-40 flex items-center justify-center transition-footer footer-hidden"
         id="cart-footer">
@@ -289,12 +276,12 @@
             </span>
         </button>
     </footer>
-    <!--FIM BUTTON CART FOOTER-->
 
+    <!--FIM BUTTON CART FOOTER-->
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./scripts/orderCart.js"></script>
     <script src="./scripts/statusStore.js"></script>
 </body>
 
-</html> 
+</html>
