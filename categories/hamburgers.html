@@ -14,8 +14,6 @@
         href="https://fonts.googleapis.com/css2?family=Commissioner:slnt,wght,FLAR,VOLM@-12..0,100..900,0..100,0..100&display=swap"
         rel="stylesheet" />
 
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- Tailwind CSS-->
     <link rel="stylesheet" href="../styles/output.css">
@@ -29,7 +27,7 @@
         <div class=" absolute inset-0 bg-black/70 z-0">
             <div class="w-full h-full flex flex-col justify-center items-center z-10">
                 <img src="../assets/logo.jpg" alt="Logo da lanchonete"
-                    class="w-32 h-32  rounded-full shadow-lg hover:scale-110 duration-200" />
+                    class="w-32 h-32  rounded-full shadow-lg hover:scale-110 duration-200" loading="lazy"/>
                 <h1 class="text-4xl mt-4 mb-2 font-bold text-yellow-400">Bunito Burgues</h1>
                 <span class="text-white font-medium">Rua: Casimiro Ulisses, 45 - Exu, PE</span>
 
@@ -50,9 +48,9 @@
 
         <!-- BOTÃO VOLTAR À TELA INICIAL NO TOPO DIREITO -->
         <a href="../index.html"
-            class="absolute top-4 right-4 bg-yellow-500 text-zinc-900 py-2 px-4 rounded-lg hover:bg-yellow-400 transition-colors flex items-center">
+            class="absolute top-4 right-4 bg-yellow-500 text-zinc-900 py-2 px-2 rounded-full hover:bg-yellow-400 transition-colors flex items-center">
             <span class="material-symbols-outlined">
-                arrow_circle_left
+                <img src="../assets/arrow_back.svg" alt="card-add" class="w-7 h-7 items-center">
             </span>
         </a>
         <!-- FIM BOTÃO VOLTAR À TELA INICIAL NO TOPO DIREITO -->
@@ -69,7 +67,7 @@
             <!-- PRODUTO ITEM -->
             <div class="flex gap-2">
                 <img src="../assets/hm-simples.jpeg" alt=""
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
 
                 <div class="flex-auto">
                     <p class="font-bold">Hamburguer Simples</p>
@@ -80,7 +78,7 @@
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto "
                             data-name="Hamburquer Simples" data-price="6.50">
                             <span class="material-symbols-outlined text-white">
-                                shopping_cart
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
                             </span>
                         </button>
                     </div>
@@ -91,7 +89,7 @@
             <!-- PRODUTO ITEM -->
             <div class="flex gap-2">
                 <img src="../assets/queijo-quente.webp" alt=""
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
 
                 <div class="flex-auto">
                     <p class="font-bold">Queijo Quente</p>
@@ -102,7 +100,7 @@
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="Queijo Quente"
                             data-price="7.00">
                             <span class="material-symbols-outlined text-white">
-                                shopping_cart
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
                             </span>
                         </button>
                     </div>
@@ -113,7 +111,7 @@
             <!-- PRODUTO ITEM -->
             <div class="flex gap-2">
                 <img src="../assets/egg.webp" alt=""
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
 
                 <div class="flex-auto">
                     <p class="font-bold">EEG</p>
@@ -124,7 +122,7 @@
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="Burguer EEG"
                             data-price="7.00">
                             <span class="material-symbols-outlined text-white">
-                                shopping_cart
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
                             </span>
                         </button>
                     </div>
@@ -135,7 +133,7 @@
             <!-- PRODUTO ITEM -->
             <div class="flex gap-2">
                 <img src="../assets/misto.webp" alt=""
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
 
                 <div class="flex-auto">
                     <p class="font-bold">Misto</p>
@@ -146,7 +144,7 @@
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="Misto"
                             data-price="7.50">
                             <span class="material-symbols-outlined text-white">
-                                shopping_cart
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
                             </span>
                         </button>
                     </div>
@@ -157,7 +155,7 @@
             <!-- PRODUTO ITEM -->
             <div class="flex gap-2">
                 <img src="../assets/x-burguer.webp" alt=""
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
 
                 <div class="flex-auto">
                     <p class="font-bold">X - Burguer</p>
@@ -168,7 +166,7 @@
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="X - Burguer"
                             data-price="7.50">
                             <span class="material-symbols-outlined text-white">
-                                shopping_cart
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
                             </span>
                         </button>
                     </div>
@@ -179,7 +177,7 @@
             <!-- PRODUTO ITEM -->
             <div class="flex gap-2">
                 <img src="../assets/hamburque.webp" alt=""
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
 
                 <div class="flex-auto">
                     <p class="font-bold">Hamburquer</p>
@@ -191,7 +189,7 @@
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="Hamgurguer"
                             data-price="7.50">
                             <span class="material-symbols-outlined text-white">
-                                shopping_cart
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
                             </span>
                         </button>
                     </div>
@@ -202,7 +200,7 @@
             <!-- PRODUTO ITEM -->
             <div class="flex gap-2">
                 <img src="../assets/americano.webp" alt="Local da lanchonetee"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
 
                 <div class="flex-auto">
                     <p class="font-bold">Americano</p>
@@ -214,7 +212,7 @@
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="Americano"
                             data-price="8.50">
                             <span class="material-symbols-outlined text-white">
-                                shopping_cart
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
                             </span>
                         </button>
                     </div>
@@ -225,7 +223,7 @@
             <!-- PRODUTO ITEM -->
             <div class="flex gap-2">
                 <img src="../assets/egg-salsicha.webp" alt=""
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
 
                 <div class="flex-auto">
                     <p class="font-bold">EGG Burguer com Salsicha</p>
@@ -237,7 +235,7 @@
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto "
                             data-name="EEG Burguer com Salsicha" data-price="9.50">
                             <span class="material-symbols-outlined text-white">
-                                shopping_cart
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
                             </span>
                         </button>
                     </div>
@@ -248,7 +246,7 @@
             <!-- x-egg burguer -->
             <div class="flex gap-2">
                 <img src="../assets/x-egg-burguer.webp" alt="x-egg burguer"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">X-Egg Burguer</p>
                     <p class="text-sm">Pão, carne, ovo, mussarela, presunto, alface e tomate</p>
@@ -256,7 +254,9 @@
                         <p class="font-bold text-lg">R$ 9,50</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="X-Egg Burguer"
                             data-price="9.50">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white">
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -266,7 +266,7 @@
             <!-- Bacon com salsicha -->
             <div class="flex gap-2">
                 <img src="../assets/bancon-com-salsich.webp" alt="Bacon com Salsicha"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">Bacon com Salsicha</p>
                     <p class="text-sm">Pão, bacon, salsicha, mussarela, alface e tomate</p>
@@ -274,7 +274,9 @@
                         <p class="font-bold text-lg">R$ 9,50</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto "
                             data-name="Bacon com Salsicha" data-price="9.50">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white">
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -284,7 +286,7 @@
             <!-- x-salada -->
             <div class="flex gap-2">
                 <img src="../assets/x-salada.webp" alt="x-salada"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">X-Salada</p>
                     <p class="text-sm">Pão, carne, mussarela, milho, pimentão, cebola, alface e tomate</p>
@@ -292,7 +294,9 @@
                         <p class="font-bold text-lg">R$ 9,50</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="X-Salada"
                             data-price="9.50">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white">
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -302,7 +306,7 @@
             <!-- FRAN-salada -->
             <div class="flex gap-2">
                 <img src="../assets/fran-salada.webp" alt="FRAN-salada"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">FRAN - Salada</p>
                     <p class="text-sm">Pão com frango, mussarela, milho, pimentão, cebola, alface e tomate</p>
@@ -310,7 +314,9 @@
                         <p class="font-bold text-lg">R$ 11,00</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="FRAN - Salada"
                             data-price="11.00">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white">
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -320,7 +326,7 @@
             <!-- x-calabresa -->
             <div class="flex gap-2">
                 <img src="../assets/x-calabresa.webp" alt="x-calabresa"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">X-Calabresa</p>
                     <p class="text-sm">Pão, carne calabresa, mussarela, alface e tomate</p>
@@ -328,7 +334,9 @@
                         <p class="font-bold text-lg">R$ 11,00</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="X-Calabresa"
                             data-price="11.00">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white">
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -338,7 +346,7 @@
             <!-- x-egg calabresa -->
             <div class="flex gap-2">
                 <img src="../assets/x-egg-calabresa.webp" alt="x-egg calabresa"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">X-Egg Calabresa</p>
                     <p class="text-sm">Pão, carne, calabresa, ovo, mussarela, alface e tomate</p>
@@ -346,7 +354,9 @@
                         <p class="font-bold text-lg">R$ 11,50</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto "
                             data-name="X-Egg Calabresa" data-price="11.50">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white">
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -356,7 +366,7 @@
             <!-- x-bacon -->
             <div class="flex gap-2">
                 <img src="../assets/x-bacon.webp" alt="x-bacon"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">X-Bacon</p>
                     <p class="text-sm">Pão, carne, bacon, mussarela, alface e tomate</p>
@@ -364,7 +374,9 @@
                         <p class="font-bold text-lg">R$ 11,50</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="X-Bacon"
                             data-price="11.50">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white">
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -374,7 +386,7 @@
             <!-- x-egg bacon -->
             <div class="flex gap-2">
                 <img src="../assets/x-egg-bacon.webp" alt="x-egg bacon"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">X-Egg Bacon</p>
                     <p class="text-sm">Pão, carne, bacon, ovo, mussarela, alface e tomate</p>
@@ -382,7 +394,9 @@
                         <p class="font-bold text-lg">R$ 11,50</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="X-Egg Bacon"
                             data-price="11.50">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white">
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -392,7 +406,7 @@
             <!-- super burguer -->
             <div class="flex gap-2">
                 <img src="../assets/super-burguer.webp" alt="super burguer"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">Super Burguer</p>
                     <p class="text-sm">Pão, carne, bacon, ovo, salsicha, mussarela, presunto, alface e tomate</p>
@@ -400,7 +414,9 @@
                         <p class="font-bold text-lg">R$ 11,50</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="Super Burguer"
                             data-price="11.50">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white">
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -410,7 +426,7 @@
             <!-- x-frango -->
             <div class="flex gap-2">
                 <img src="../assets/x-frango.webp" alt="x-frango"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">X-Frango</p>
                     <p class="text-sm">Pão, frango, mussarela, milho, alface e tomate</p>
@@ -418,7 +434,9 @@
                         <p class="font-bold text-lg">R$ 11,50</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-autol" data-name="X-Frango"
                             data-price="11.50">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white">
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -428,7 +446,7 @@
             <!-- x-egg frango -->
             <div class="flex gap-2">
                 <img src="../assets/x-egg-frango.webp" alt="x-egg frango"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">X-Egg Frango</p>
                     <p class="text-sm">Pão, frango, ovo, mussarela, milho, alface e tomate</p>
@@ -436,7 +454,9 @@
                         <p class="font-bold text-lg">R$ 12,00</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="X-Egg Frango"
                             data-price="12.00">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white"></span>
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -446,7 +466,7 @@
             <!-- Fran-burguer -->
             <div class="flex gap-2">
                 <img src="../assets/fran-burguer.webp" alt="Fran-burguer"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">Fran-Burguer</p>
                     <p class="text-sm">Pão, frango, carne, mussarela, milho, alface e tomate</p>
@@ -454,7 +474,9 @@
                         <p class="font-bold text-lg">R$ 12,00</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="Fran-Burguer"
                             data-price="12.00">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white">
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -464,7 +486,7 @@
             <!-- Fran-calabresa -->
             <div class="flex gap-2">
                 <img src="../assets/fran-calabresa.webp" alt="Fran-calabresa"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">Fran-Calabresa</p>
                     <p class="text-sm">Pão, frango, calabresa, mussarela, milho, alface e tomate</p>
@@ -472,7 +494,9 @@
                         <p class="font-bold text-lg">R$ 12,00</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto "
                             data-name="Fran-Calabresa" data-price="12.00">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white"></span>
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -482,7 +506,7 @@
             <!-- Fran-bacon -->
             <div class="flex gap-2">
                 <img src="../assets/fran-bacon.webp" alt="Fran-bacon"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">Fran-Bacon</p>
                     <p class="text-sm">Pão, frango, bacon, mussarela, milho, alface e tomate</p>
@@ -490,7 +514,9 @@
                         <p class="font-bold text-lg">R$ 12,00</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="Fran-Bacon"
                             data-price="12.00">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white"></span>
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -500,7 +526,7 @@
             <!-- X-P Yan -->
             <div class="flex gap-2">
                 <img src="../assets/xp-yan.webp" alt="Fran-bacon"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">X-P. Yan</p>
                     <p class="text-sm">Pão, frango, presunto, mussarela, milho, alface e tomate</p>
@@ -508,7 +534,9 @@
                         <p class="font-bold text-lg">R$ 12,00</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="X-P. Yan"
                             data-price="12.00">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white">
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -518,7 +546,7 @@
             <!-- X - Micael -->
             <div class="flex gap-2">
                 <img src="../assets/x-micael.webp" alt="Fran-bacon"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">X - Micael</p>
                     <p class="text-sm">Pão, frango, carne, presunto, mussarela, milho, alface e tomate</p>
@@ -526,7 +554,9 @@
                         <p class="font-bold text-lg">R$ 12,00</p>
                         <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto " data-name="X - Micael"
                             data-price="12.00">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white">
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -536,15 +566,17 @@
             <!-- X - Bunito -->
             <div class="flex gap-2">
                 <img src="../assets/x-bunito.webp" alt="Fran-bacon"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" loading="lazy">
                 <div class="flex-auto">
                     <p class="font-bold">X - Bunito</p>
                     <p class="text-sm">Pão, frango, carne, mussarela, bacon, calabresa, salsicha, alface e tomate</p>
                     <div class="flex items-center gap-2 justify-between mt-2">
                         <p class="font-bold text-lg">R$ 12,50</p>
-                        <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto"
+                        <button type="button" class="bg-gray-800 px-4 py-2 rounded add-to-cart-btn flex items-center justify-center sm:w-auto" data-name="X - Bunito"
                             data-price="12.50">
-                            <span class="material-symbols-outlined text-white">shopping_cart</span>
+                            <span class="material-symbols-outlined text-white">
+                                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-6 h-6">
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -613,7 +645,7 @@
             (<span id="cart-count" class="">0</span>)
             Meu carrinho
             <span class="material-symbols-outlined text-lg text-white">
-                add_shopping_cart
+                <img src="../assets/add_shopping.svg" alt="card_store" class="w-6 h-6">
             </span>
         </button>
     </footer>
