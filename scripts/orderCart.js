@@ -52,31 +52,65 @@ closeModalBtn.addEventListener("click", function () {
     cartModal.style.display = "none";
 });
 
-// Add to cart
+
+
+// Adicionar evento de mudança no select para o suco
+document.querySelectorAll('.milk-option').forEach(select => {
+    select.addEventListener('change', (e) => {
+        const selectedOption = e.target.options[e.target.selectedIndex];
+        const price = selectedOption.value;
+        const milkType = selectedOption.getAttribute('data-milk');
+
+        // Atualiza o preço exibido
+        const priceDisplay = e.target.closest('.flex-auto').querySelector('.price-display');
+        priceDisplay.textContent = `R$ ${price}`;
+
+        // Atualiza o botão de adicionar ao carrinho
+        const addToCartBtn = e.target.closest('.flex-auto').querySelector('.add-to-cart-btn');
+        addToCartBtn.setAttribute('data-price', price);
+        addToCartBtn.setAttribute('data-milk', milkType);
+    });
+});
+
+// Modifica o evento de clique no botão de adicionar ao carrinho
 menu.addEventListener("click", function (event) {
     let parentButton = event.target.closest(".add-to-cart-btn");
 
     if (parentButton) {
         const name = parentButton.getAttribute("data-name");
         const price = parseFloat(parentButton.getAttribute("data-price"));
+        const milk = parentButton.getAttribute("data-milk"); // Pega a opção "com leite" ou "sem leite"
 
-        addToCart(name, price);
+        addToCart(name, price, milk);
     }
 });
 
-// Function to add item to cart
-function addToCart(name, price) {
-    const existingItem = cart.find(item => item.name === name);
+// Modificar a função para incluir o tipo de suco
+function addToCart(name, price, milk) {
+    const existingItem = cart.find(item => item.name === `${name} (${milk})`);
 
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
         cart.push({
-            name,
+            name: `${name} (${milk})`,
             price,
             quantity: 1,
         });
     }
+
+    // Exibe a notificação de produto adicionado
+    Toastify({
+        text: `${name} (${milk}) adicionado ao carrinho!`,
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+            background: "rgb(16, 185, 129)", // Verde para indicar sucesso
+        }
+    }).showToast();
 
     saveCartToLocalStorage(); // Salva o carrinho ao adicionar um item
     updateCartModal();
@@ -241,3 +275,22 @@ ${cartItems}
     updateCartModal();
     updateCartFooterVisibility();
 });
+
+// Adicionar evento de mudança no select para o suco
+document.querySelectorAll('.milk-option').forEach(select => {
+    select.addEventListener('change', (e) => {
+        const selectedOption = e.target.options[e.target.selectedIndex];
+        const price = selectedOption.value;
+        const milkType = selectedOption.getAttribute('data-milk');
+
+        // Atualiza o preço exibido
+        const priceDisplay = e.target.closest('.flex-auto').querySelector('.price-display');
+        priceDisplay.textContent = `R$ ${price}`;
+
+        // Atualiza o botão de adicionar ao carrinho
+        const addToCartBtn = e.target.closest('.flex-auto').querySelector('.add-to-cart-btn');
+        addToCartBtn.setAttribute('data-price', price);
+        addToCartBtn.setAttribute('data-milk', milkType);
+    });
+});
+
