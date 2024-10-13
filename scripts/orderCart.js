@@ -16,6 +16,8 @@ const addressWarn = document.getElementById("address-warn");
 const nameInput = document.getElementById("name");
 const paymentMethodSelect = document.getElementById("payment-method");
 const additionalInfoInput = document.getElementById("additional-info");
+const orderTypeSelect = document.getElementById("order-type"); // Forma de retirada
+const deliveryAddressDiv = document.getElementById("delivery-address"); // Div para esconder/mostrar endereço
 
 // Contador de pedidos
 let orderCount = 0;
@@ -54,76 +56,62 @@ closeModalBtn.addEventListener("click", function () {
   cartModal.style.display = "none";
 });
 
-// Adicionar evento de mudança no select para o suco
-document.querySelectorAll(".milk-option").forEach((select) => {
-  select.addEventListener("change", (e) => {
-    const selectedOption = e.target.options[e.target.selectedIndex];
-    const price = selectedOption.value;
-    const milkType = selectedOption.getAttribute("data-milk");
-
-    // Atualiza o preço exibido
-    const priceDisplay = e.target
-      .closest(".flex-auto")
-      .querySelector(".price-display");
-    priceDisplay.textContent = `R$ ${price}`;
-
-    // Atualiza o botão de adicionar ao carrinho
-    const addToCartBtn = e.target
-      .closest(".flex-auto")
-      .querySelector(".add-to-cart-btn");
-    addToCartBtn.setAttribute("data-price", price);
-    addToCartBtn.setAttribute("data-milk", milkType);
-  });
+// Mostrar/esconder campos de endereço com base na forma de retirada
+orderTypeSelect.addEventListener("change", function () {
+  if (this.value === "entrega") {
+    deliveryAddressDiv.classList.remove("hidden"); // Mostra os campos de endereço
+  } else {
+    deliveryAddressDiv.classList.add("hidden"); // Esconde os campos de endereço
+  }
 });
 
 // Modifica o evento de clique no botão de adicionar ao carrinho
 menu.addEventListener("click", function (event) {
-    let parentButton = event.target.closest(".add-to-cart-btn");
-  
-    if (parentButton) {
-      const name = parentButton.getAttribute("data-name");
-      const price = parseFloat(parentButton.getAttribute("data-price"));
-      const milk = parentButton.getAttribute("data-milk"); // Pega a opção "com leite" ou "sem leite"
-  
-      addToCart(name, price, milk);
-    }
-  });
-  
-  // Modificar a função para incluir o tipo de suco
-  function addToCart(name, price, milk = null) {
-    // Se milk for nulo ou indefinido, não incluir no nome do produto
-    const itemName = milk ? `${name} (${milk})` : name;
-  
-    const existingItem = cart.find(item => item.name === itemName);
-  
-    if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      cart.push({
-        name: itemName,  // Agora, usa itemName, que já inclui a verificação de milk
-        price,
-        quantity: 1,
-      });
-    }
-  
-    // Exibe a notificação de produto adicionado
-    Toastify({
-      text: `${itemName} adicionado ao carrinho!`,
-      duration: 3000,
-      close: true,
-      gravity: "top",
-      position: "right",
-      stopOnFocus: true,
-      style: {
-        background: "rgb(16, 185, 129)", // Verde para indicar sucesso
-      },
-    }).showToast();
-  
-    saveCartToLocalStorage(); // Salva o carrinho ao adicionar um item
-    updateCartModal();
-    updateCartFooterVisibility();
+  let parentButton = event.target.closest(".add-to-cart-btn");
+
+  if (parentButton) {
+    const name = parentButton.getAttribute("data-name");
+    const price = parseFloat(parentButton.getAttribute("data-price"));
+    const milk = parentButton.getAttribute("data-milk"); // Pega a opção "com leite" ou "sem leite"
+
+    addToCart(name, price, milk);
   }
-  
+});
+
+// Modificar a função para incluir o tipo de suco
+function addToCart(name, price, milk = null) {
+  // Se milk for nulo ou indefinido, não incluir no nome do produto
+  const itemName = milk ? `${name} (${milk})` : name;
+
+  const existingItem = cart.find((item) => item.name === itemName);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({
+      name: itemName, // Agora, usa itemName, que já inclui a verificação de milk
+      price,
+      quantity: 1,
+    });
+  }
+
+  // Exibe a notificação de produto adicionado
+  Toastify({
+    text: `${itemName} adicionado ao carrinho!`,
+    duration: 3000,
+    close: true,
+    gravity: "top",
+    position: "right",
+    stopOnFocus: true,
+    style: {
+      background: "rgb(16, 185, 129)", // Verde para indicar sucesso
+    },
+  }).showToast();
+
+  saveCartToLocalStorage(); // Salva o carrinho ao adicionar um item
+  updateCartModal();
+  updateCartFooterVisibility();
+}
 
 // Function to remove item from cart
 function removeItemFromCart(name) {
@@ -197,7 +185,7 @@ function updateCartFooterVisibility() {
 // Update footer visibility on page load
 document.addEventListener("DOMContentLoaded", updateCartFooterVisibility);
 
-// Validate address input and show warning
+// Validate address input and show warning if fields are empty
 addressNumberInput.addEventListener("input", validateAddress);
 addressStreetInput.addEventListener("input", validateAddress);
 addressNeighborhoodInput.addEventListener("input", validateAddress);
@@ -239,7 +227,6 @@ checkoutBtn.addEventListener("click", function () {
       style: {
         background: "rgb(239 68 68 )",
       },
-      onClick: function () {}, // Callback after click
     }).showToast();
 
     return;
@@ -247,19 +234,21 @@ checkoutBtn.addEventListener("click", function () {
 
   if (cart.length === 0) return;
 
-  // Check if all address fields are filled
-  if (
-    addressNumberInput.value === "" ||
-    addressStreetInput.value === "" ||
-    addressNeighborhoodInput.value === "" ||
-    addressCityInput.value === ""
-  ) {
-    addressWarn.classList.remove("hidden");
-    addressNumberInput.classList.add("border-red-500");
-    addressStreetInput.classList.add("border-red-500");
-    addressNeighborhoodInput.classList.add("border-red-500");
-    addressCityInput.classList.add("border-red-500");
-    return;
+  // Verifica se a forma de retirada é "entrega" e valida os campos de endereço
+  if (orderTypeSelect.value === "entrega") {
+    if (
+      addressNumberInput.value === "" ||
+      addressStreetInput.value === "" ||
+      addressNeighborhoodInput.value === "" ||
+      addressCityInput.value === ""
+    ) {
+      addressWarn.classList.remove("hidden");
+      addressNumberInput.classList.add("border-red-500");
+      addressStreetInput.classList.add("border-red-500");
+      addressNeighborhoodInput.classList.add("border-red-500");
+      addressCityInput.classList.add("border-red-500");
+      return;
+    }
   }
 
   // Increment order count
@@ -268,57 +257,37 @@ checkoutBtn.addEventListener("click", function () {
   // Build WhatsApp message
   const cartItems = cart
     .map((item) => {
-      return `${item.name} (${item.quantity}) un`;
+      return `${item.name} (${item.quantity}) - R$: ${item.price.toFixed(2)}`;
     })
     .join("\n");
 
-  const message = `
-🚨  *Pedido de Nº ${orderCount}*
+  const total = cart
+    .reduce((acc, item) => acc + item.price * item.quantity, 0)
+    .toFixed(2);
+  const name = nameInput.value;
+  const paymentMethod = paymentMethodSelect.value;
+  const additionalInfo = additionalInfoInput.value;
+  const orderType = orderTypeSelect.value;
 
-🛒  *Itens:*
-${cartItems}
+  // Ajusta a mensagem dependendo se for entrega ou retirada
+  const address =
+    orderType === "entrega"
+      ? `Endereço: ${addressStreetInput.value}, ${addressNumberInput.value}, ${addressNeighborhoodInput.value}, ${addressCityInput.value}`
+      : "🛍️ - Retirada na lanchonete";
 
-💰 *Valor Total:* R$ ${cartTotal.textContent}
-
-🏠 *Endereço:* ${addressNumberInput.value}, ${addressStreetInput.value}, ${addressNeighborhoodInput.value}, ${addressCityInput.value}
-
-⚠️ _OBS: O valor da entrega será passado após confirmação de dados e endereço!_
-
-👤  Nome: ${nameInput.value}
-💳 Forma de Pagamento: ${paymentMethodSelect.value}
-🗒️ Detalhes Adicionais: ${additionalInfoInput.value}
-    `;
+  const message = `🚨 - Pedido número: ${orderCount}\n🚩 - Nome: ${name}\n\n🛒 - Itens do pedido:\n${cartItems}\n\n💰 - Total: R$ ${total}\n💳 - Forma de pagamento: ${paymentMethod}\n${address}\nObservações: ${additionalInfo}\n\nAgradecemos o seu pedido!`;
 
   const encodedMessage = encodeURIComponent(message);
-  const phone = "5587999061405";
 
-  window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
+  // Open WhatsApp chat with the encoded message
+  window.open(`https://wa.me/5587999061405?text=${encodedMessage}`);
 
-  // Clear cart and update modal (inclui limpar o LocalStorage)
+  // Clear cart
   cart = [];
-  localStorage.removeItem("cart");
+  saveCartToLocalStorage();
   updateCartModal();
   updateCartFooterVisibility();
-});
 
-// Adicionar evento de mudança no select para o suco
-document.querySelectorAll(".milk-option").forEach((select) => {
-  select.addEventListener("change", (e) => {
-    const selectedOption = e.target.options[e.target.selectedIndex];
-    const price = selectedOption.value;
-    const milkType = selectedOption.getAttribute("data-milk");
-
-    // Atualiza o preço exibido
-    const priceDisplay = e.target
-      .closest(".flex-auto")
-      .querySelector(".price-display");
-    priceDisplay.textContent = `R$ ${price}`;
-
-    // Atualiza o botão de adicionar ao carrinho
-    const addToCartBtn = e.target
-      .closest(".flex-auto")
-      .querySelector(".add-to-cart-btn");
-    addToCartBtn.setAttribute("data-price", price);
-    addToCartBtn.setAttribute("data-milk", milkType);
-  });
+  // Close modal after checkout
+  cartModal.style.display = "none";
 });

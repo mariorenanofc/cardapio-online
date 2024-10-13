@@ -255,9 +255,13 @@
               data-name="Coca cola - lata"
               data-price="5.00"
             >
-            <span class="material-symbols-outlined">
-                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-7 h-7 items-center">
-            </span>
+              <span class="material-symbols-outlined">
+                <img
+                  src="../assets/shopping_cart.svg"
+                  alt="card-add"
+                  class="w-7 h-7 items-center"
+                />
+              </span>
             </button>
           </div>
         </div>
@@ -284,9 +288,13 @@
               data-name="Refrigerante cajuina 1 litro"
               data-price="8.00"
             >
-            <span class="material-symbols-outlined">
-                <img src="../assets/shopping_cart.svg" alt="card-add" class="w-7 h-7 items-center">
-            </span>
+              <span class="material-symbols-outlined">
+                <img
+                  src="../assets/shopping_cart.svg"
+                  alt="card-add"
+                  class="w-7 h-7 items-center"
+                />
+              </span>
             </button>
           </div>
         </div>
@@ -295,7 +303,7 @@
     </div>
     <!-- FIM GRID BEBIDAS-->
 
-    <!--MODAL CARD-->
+    <!-- MODAL CARD -->
     <div
       class="bg-black/70 w-full h-full fixed top-0 left-0 z-[99] hidden items-center justify-center modal-content"
       id="cart-modal"
@@ -312,40 +320,45 @@
 
         <p class="font-bold">Total: <span id="cart-total">R$ 0.00</span></p>
 
-        <p class="font-bold mt-4">Endereço de Entrega:</p>
+        <!-- Nova Seleção: Forma de Retirada -->
+        <p class="font-bold mt-4">Forma de Retirada:</p>
+        <select
+          id="order-type"
+          class="w-full border-2 p-1 rounded my-1 bg-orange-100"
+        >
+          <option value="retirada">🛍️ - Retirada na Lanchonete</option>
+          <option value="entrega">🛵 - Entrega</option>
+        </select>
 
-        <input
-          type="text"
-          placeholder="Número"
-          id="address-number"
-          class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Rua"
-          id="address-street"
-          class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Bairro"
-          id="address-neighborhood"
-          class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Cidade"
-          id="address-city"
-          class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
-          required
-        />
+        <!-- Campos de Endereço (escondidos por padrão) -->
+        <div id="delivery-address" class="hidden">
+          <p class="font-bold mt-4">Endereço de Entrega:</p>
 
-        <p class="text-red-700 hidden" id="address-warn">
-          *Preencha todos os campos do endereço!
-        </p>
+          <input
+            type="text"
+            placeholder="Número"
+            id="address-number"
+            class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
+          />
+          <input
+            type="text"
+            placeholder="Rua"
+            id="address-street"
+            class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
+          />
+          <input
+            type="text"
+            placeholder="Bairro"
+            id="address-neighborhood"
+            class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
+          />
+          <input
+            type="text"
+            placeholder="Cidade"
+            id="address-city"
+            class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
+          />
+        </div>
 
         <p class="font-bold mt-4">Nome:</p>
         <input
@@ -401,7 +414,11 @@
       >
         (<span id="cart-count" class="">0</span>) Meu carrinho
         <span class="material-symbols-outlined">
-            <img src="../assets/add_shopping.svg" alt="card-add" class="w-7 h-7 items-center">
+          <img
+            src="../assets/add_shopping.svg"
+            alt="card-add"
+            class="w-7 h-7 items-center"
+          />
         </span>
       </button>
     </footer>

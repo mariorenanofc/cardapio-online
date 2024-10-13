@@ -96,7 +96,7 @@
       id="menu"
     >
       <!-- SUCO DE GOIABA -->
-      <div class="flex gap-2 bg-orange-200 p-2">
+      <div class="flex gap-2">
         <img
           src="../assets/suco-goiaba.webp"
           alt="Suco de frutas"
@@ -108,13 +108,13 @@
           <p class="text-sm">Suco de sabor goiaba 380ml</p>
 
           <!-- Opção com leite ou sem leite -->
-          <div class="mt-2 bg-orange-200 px-1 rounded-md">
+          <div class="mt-2">
             <label for="milk-option" class="font-medium"
               >Escolha uma opção:</label
             >
             <select
               id="milk-option"
-              class="ml-2 border-gray-300 rounded-md milk-option bg-orange-100"
+              class="ml-2 border-gray-300 rounded-md milk-option"
               data-name="Suco de Goiaba"
             >
               <option value="3.75" data-milk="sem leite">
@@ -150,9 +150,8 @@
       </div>
       <!--FIM SUCO DE GOIABA -->
 
-
       <!-- SUCO DE MANGA -->
-      <div class="flex gap-2 bg-orange-200 p-2">
+      <div class="flex gap-2">
         <img
           src="../assets/suco-manga.webp"
           alt="Suco de Manga"
@@ -164,13 +163,13 @@
           <p class="text-sm">Suco de sabor manga 380ml</p>
 
           <!-- Opção com leite ou sem leite -->
-          <div class="mt-2 bg-orange-200 px-1 rounded-md"">
+          <div class="mt-2">
             <label for="milk-option" class="font-medium"
               >Escolha uma opção:</label
             >
             <select
               id="milk-option"
-              class="ml-2 border-gray-300 rounded-md milk-option bg-orange-100"
+              class="ml-2 border-gray-300 rounded-md milk-option"
               data-name="Suco de Manga"
             >
               <option value="3.75" data-milk="sem leite">
@@ -205,9 +204,9 @@
         </div>
       </div>
       <!--FIM SUCO DE MANGA -->
-      
+
       <!-- SUCO DE ACEROLA -->
-      <div class="flex gap-2  bg-orange-200 p-2">
+      <div class="flex gap-2">
         <img
           src="../assets/suco-acerola.webp"
           alt="Suco de Acerola"
@@ -219,13 +218,15 @@
           <p class="text-sm">Suco de sabor Acerola 380ml</p>
 
           <!-- Opção com leite ou sem leite -->
-          <div class="mt-2 bg-orange-200 px-1 rounded-md"">
+          <div
+            class="mt-2"
+          >
             <label for="milk-option" class="font-medium"
               >Escolha uma opção:</label
             >
             <select
               id="milk-option"
-              class="ml-2 border-gray-300 rounded-md milk-option bg-orange-100"
+              class="ml-2 border-gray-300 rounded-md milk-option px-0 m-0"
               data-name="Suco de Acerola"
             >
               <option value="3.75" data-milk="sem leite">
@@ -260,9 +261,9 @@
         </div>
       </div>
       <!--FIM SUCO DE ACEROLA-->
-      
+
       <!-- SUCO DE MARACUJA -->
-      <div class="flex gap-2  bg-orange-200 p-2">
+      <div class="flex gap-2">
         <img
           src="../assets/suco-maracuja.webp"
           alt="Suco de Maracuja"
@@ -274,13 +275,13 @@
           <p class="text-sm">Suco de sabor Maracuja 380ml</p>
 
           <!-- Opção com leite ou sem leite -->
-          <div class="mt-2 bg-orange-200 px-1 rounded-md" >
+          <div class="mt-2">
             <label for="milk-option" class="font-medium"
               >Escolha uma opção:</label
             >
             <select
               id="milk-option"
-              class="ml-2 border-gray-300 rounded-md milk-option bg-orange-100"
+              class="ml-2 border-gray-300 rounded-md milk-option"
               data-name="Suco de Maracuja"
             >
               <option value="4.00" data-milk="sem leite">
@@ -315,12 +316,10 @@
         </div>
       </div>
       <!--FIM SUCO DE MARACUJA-->
-
-    
     </div>
     <!--FIM GRID SUCOS-->
 
-    <!--MODAL CARD-->
+    <!-- MODAL CARD -->
     <div
       class="bg-black/70 w-full h-full fixed top-0 left-0 z-[99] hidden items-center justify-center modal-content"
       id="cart-modal"
@@ -337,40 +336,45 @@
 
         <p class="font-bold">Total: <span id="cart-total">R$ 0.00</span></p>
 
-        <p class="font-bold mt-4">Endereço de Entrega:</p>
+        <!-- Nova Seleção: Forma de Retirada -->
+        <p class="font-bold mt-4">Forma de Retirada:</p>
+        <select
+          id="order-type"
+          class="w-full border-2 p-1 rounded my-1 bg-orange-100"
+        >
+          <option value="retirada">🛍️ - Retirada na Lanchonete</option>
+          <option value="entrega">🛵 - Entrega</option>
+        </select>
 
-        <input
-          type="text"
-          placeholder="Número"
-          id="address-number"
-          class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Rua"
-          id="address-street"
-          class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Bairro"
-          id="address-neighborhood"
-          class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Cidade"
-          id="address-city"
-          class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
-          required
-        />
+        <!-- Campos de Endereço (escondidos por padrão) -->
+        <div id="delivery-address" class="hidden">
+          <p class="font-bold mt-4">Endereço de Entrega:</p>
 
-        <p class="text-red-700 hidden" id="address-warn">
-          *Preencha todos os campos do endereço!
-        </p>
+          <input
+            type="text"
+            placeholder="Número"
+            id="address-number"
+            class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
+          />
+          <input
+            type="text"
+            placeholder="Rua"
+            id="address-street"
+            class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
+          />
+          <input
+            type="text"
+            placeholder="Bairro"
+            id="address-neighborhood"
+            class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
+          />
+          <input
+            type="text"
+            placeholder="Cidade"
+            id="address-city"
+            class="w-full border-2 p-1 rounded my-1 bg-orange-100 placeholder-black"
+          />
+        </div>
 
         <p class="font-bold mt-4">Nome:</p>
         <input
