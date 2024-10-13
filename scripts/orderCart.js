@@ -257,7 +257,7 @@ checkoutBtn.addEventListener("click", function () {
   // Build WhatsApp message
   const cartItems = cart
     .map((item) => {
-      return `${item.name} (${item.quantity}) - R$: ${item.price.toFixed(2)}`;
+      return `- ${item.name} (${item.quantity}) - R$: ${item.price.toFixed(2)}`;
     })
     .join("\n");
 
