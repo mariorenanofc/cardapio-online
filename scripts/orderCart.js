@@ -1,4 +1,4 @@
-const menu = document.getElementById("menu", "drick-menu");
+const menu = document.getElementById("menu");
 const cartBtn = document.getElementById("cart-btn");
 const cartModal = document.getElementById("cart-modal");
 const cartItemsContainer = document.getElementById("cart-items");
@@ -8,9 +8,7 @@ const closeModalBtn = document.getElementById("closed-model-btn");
 const cartCounter = document.getElementById("cart-count");
 const addressNumberInput = document.getElementById("address-number");
 const addressStreetInput = document.getElementById("address-street");
-const addressNeighborhoodInput = document.getElementById(
-  "address-neighborhood"
-);
+const addressNeighborhoodInput = document.getElementById("address-neighborhood");
 const addressCityInput = document.getElementById("address-city");
 const addressWarn = document.getElementById("address-warn");
 const nameInput = document.getElementById("name");
@@ -83,6 +81,13 @@ function addToCart(name, price, milk = null) {
   // Se milk for nulo ou indefinido, não incluir no nome do produto
   const itemName = milk ? `${name} (${milk})` : name;
 
+  // Verificar se o preço é um número
+  const itemPrice = parseFloat(price);
+  if (isNaN(itemPrice)) {
+    console.error(`Preço inválido para o item ${itemName}`);
+    return; // Aborta a função se o preço não for válido
+  }
+
   const existingItem = cart.find((item) => item.name === itemName);
 
   if (existingItem) {
@@ -130,6 +135,14 @@ function updateCartModal() {
   let total = 0;
 
   cart.forEach((item) => {
+
+    // Garantir que o preço seja válido
+    const itemPrice = parseFloat(item.price);
+    if (isNaN(itemPrice)) {
+      console.error(`Preço inválido para o item ${item.name}`);
+      return; // Pular item com preço inválido
+    }
+    
     const cartItemElement = document.createElement("div");
     cartItemElement.classList.add(
       "flex",
@@ -211,6 +224,39 @@ function validateAddress() {
     addressCityInput.classList.add("border-red-500");
   }
 }
+
+// Função para manipular as opções de leite no cardápio e atualizar o preço e o botão de adicionar ao carrinho
+document.addEventListener("DOMContentLoaded", function () {
+  const milkOptions = document.querySelectorAll(".milk-option");
+
+  milkOptions.forEach(function (selectElement) {
+    selectElement.addEventListener("change", function (event) {
+      const selectedOption = event.target.selectedOptions[0];
+      const selectedPrice = selectedOption.value;
+      const selectedMilk = selectedOption.getAttribute("data-milk");
+
+      const productContainer = event.target.closest(".flex-auto");
+      const priceDisplay = productContainer.querySelector(".price-display");
+      priceDisplay.textContent = `R$ ${parseFloat(selectedPrice).toFixed(2)}`;
+
+      const addToCartButton = productContainer.querySelector(".add-to-cart-btn");
+      addToCartButton.setAttribute("data-price", selectedPrice);
+      addToCartButton.setAttribute("data-milk", selectedMilk);
+    });
+  });
+
+  const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
+  addToCartButtons.forEach(function (button) {
+    button.addEventListener("click", function (event) {
+      event.stopPropagation(); // Para evitar a propagação do evento
+      const name = button.getAttribute("data-name");
+      const price = parseFloat(button.getAttribute("data-price")); // Converte o preço para float
+      const milk = button.getAttribute("data-milk");
+
+      addToCart(name, price, milk);
+    });
+  });
+});
 
 checkoutBtn.addEventListener("click", function () {
   updateStoreStatus();
